@@ -50,6 +50,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
         holder.tvRelativeTime.setText(getRelativeTimeAgo(tweet.createdAt));
+        holder.tvScreenname.setText("@" + tweet.user.screenName);
 
         Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
     }
@@ -93,6 +94,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         public TextView tvUsername;
         public TextView tvBody;
         public TextView tvRelativeTime;
+        public TextView tvScreenname;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -102,12 +104,13 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             tvUsername = (TextView) itemView.findViewById(R.id.tvUsername);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvRelativeTime = (TextView) itemView.findViewById(R.id.tvRelativeTime);
+            tvScreenname = (TextView) itemView.findViewById(R.id.tvScreenname);
 
             // add this as the itemView's OnClickListener
             itemView.setOnClickListener(this);
         }
 
-        // when the user clicks on a row, show MovieDetailsActivity for the selected movie
+        // when the user clicks on a row, show DetailsActivity for the selected tweet
         @Override
         public void onClick(View v) {
             // gets item position

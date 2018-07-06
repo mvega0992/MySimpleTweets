@@ -23,6 +23,7 @@ public class DetailsActivity extends AppCompatActivity {
     TextView tvUsername;
     TextView tvBody;
     TextView tvRelativeTime;
+    TextView tvScreenname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,14 @@ public class DetailsActivity extends AppCompatActivity {
         tvUsername = (TextView) findViewById(R.id.tvUsername);
         tvBody = (TextView) findViewById(R.id.tvBody);
         tvRelativeTime = (TextView) findViewById(R.id.tvRelativeTime);
+        tvScreenname = (TextView) findViewById(R.id.tvScreenname);
         ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
 
         tweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
 
         tvUsername.setText(tweet.user.name);
         tvBody.setText(tweet.body);
+        tvScreenname.setText("@" + tweet.user.screenName);
         tvRelativeTime.setText(getRelativeTimeAgo(tweet.createdAt));
         Glide.with(this).load(tweet.user.profileImageUrl).into(ivProfileImage);
     }
