@@ -13,10 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:background="@drawable/rounded_button"
         android:onClick="onSubmit"
-        android:background="@color/twitter_blue"
+        android:text="Tweet"
         android:textColor="@android:color/white"
-        android:text="Tweet" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -64,5 +65,6 @@
         android:layout_alignParentTop="true"
         android:background="#00ffffff"
         android:onClick="onCancel"
+        android:tint="@color/twitter_blue"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 </RelativeLayout>
